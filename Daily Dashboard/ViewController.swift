@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ViewController: UIViewController {
 
@@ -14,35 +15,30 @@ class ViewController: UIViewController {
     @IBOutlet weak var dateAndTime: UILabel!
     @IBOutlet weak var timeOfDay: UILabel!
     
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.getCurrentDateAndTime), userInfo: nil, repeats: true)
+  
+        // Loads a big beautiful background image in the app
         
         let randomBackgroundImage = URL(string: "https://source.unsplash.com/collection/3519679/1920x1080")!
-        
-        // Creating a session object with the default configuration.
-        // You can read more about it here https://developer.apple.com/reference/foundation/urlsessionconfiguration
         let session = URLSession(configuration: .default)
-        
-        // Define a download task. The download task will download the contents of the URL as a Data object and then you can do what you wish with that data.
         let downloadPicTask = session.dataTask(with: randomBackgroundImage) { (data, response, error) in
             // The download has finished.
             if let e = error {
                 print("Error downloading picture: \(e)")
             } else {
                 // No errors found.
-                // It would be weird if we didn't have a response, so check for that too.
                 if let res = response as? HTTPURLResponse {
                     print("Downloaded picture with response code \(res.statusCode)")
                     if let imageData = data {
-                        // Finally convert that Data into an image and do what you wish with it.
                         let image = UIImage(data: imageData)
-                        // Do something with your image.
-                        self.background.image = image
-                        
+                        DispatchQueue.main.async {
+                            self.background.image = image
+                        }
                     } else {
                         print("Couldn't get image: Image is nil")
                     }
@@ -51,8 +47,12 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
         downloadPicTask.resume()
+        
+        // get the location of the device
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
     }
     
     @objc func getCurrentDateAndTime() {
@@ -69,22 +69,46 @@ class ViewController: UIViewController {
     
 }
 
-//struct Unsplash: Decodable {
-//    let results : UIImage
-//}
-
-
-//let jsonUrlString = "https://source.unsplash.com/1600x900/?nature,water/"
-//guard let url = URL(string: jsonUrlString) else
-//{ return }
-//
-//URLSession.shared.dataTask(with: url) { (data, response, err) in
-//
-//    do {
-//        let request = try JSONDecoder().decode(Unsplash.self, from: data!)
-//        print(request)
-//    } catch {
-//        print("an error has occurred")
-//    }
-//
-//    }.resume()
+extension ViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
+            print("latitude: \(lat), longitude \(long)")
+            lookUpCurrentLocation { geoLoc in
+                print(geoLoc?.locality ?? "unknown Geo location")
+            }
+        } else {
+            print("No coordinates")
+        }
+        print("🌎\(locations)")
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("😱location manager error: \(error)")
+    }
+    
+    
+    func lookUpCurrentLocation(completionHandler: @escaping (CLPlacemark?) -> Void ) {
+        // Use the last reported location.
+        if let lastLocation = self.locationManager.location {
+            let geocoder = CLGeocoder()
+            
+            // Look up the location and pass it to the completion handler
+            geocoder.reverseGeocodeLocation(lastLocation, completionHandler: { (placemarks, error) in
+                if error == nil {
+                    let firstLocation = placemarks?[0]
+                    completionHandler(firstLocation)
+                }
+                else {
+                    // An error occurred during geocoding.
+                    completionHandler(nil)
+                }
+            })
+        }
+        else {
+            // No location was available.
+            completionHandler(nil)
+        }
+    }
+}
