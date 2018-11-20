@@ -7,6 +7,11 @@
 //
 
 import Foundation
+class OpenWeatherAPI {
+    
+
+    var viewController = ViewController()
+    lazy var appleTVlocation = viewController.appleTVlocation()
 
 struct coordinates: Codable {
     let longitude: Double
@@ -15,6 +20,15 @@ struct coordinates: Codable {
     private enum CodingKeys: String, CodingKey {
         case longitude = "lon"
         case latitude = "lat"
+    }
+    private enum CoordsKeys: String, CodingKey {
+        case cooridnates = "coord"
+    }
+    public init(from decoder: Decoder) throws{
+        let coords = try decoder.container(keyedBy: CoordsKeys.self)
+        let coordsValues = try coords.nestedContainer(keyedBy: CodingKeys.self, forKey: .cooridnates)
+         longitude = try coordsValues.decode(Double.self, forKey: .longitude)
+         latitude = try coordsValues.decode(Double.self, forKey: .latitude)
     }
 }
 
@@ -39,7 +53,9 @@ struct main: Codable {
 
 
 func getWeatherData() {
-    let jsonUrlString = "api.openweathermap.org/data/2.5/weather?lat=55.755786&lon=37.617633&APPID=8b29a4bca59654d89101420102680ded"
+    let lat = appleTVlocation.0
+    let long = appleTVlocation.1
+    let jsonUrlString = "http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(long)&APPID=8b29a4bca59654d89101420102680ded"
     guard let url = URL(string: jsonUrlString) else { return }
     
     URLSession.shared.dataTask(with: url) { (data, response, err) in
@@ -51,10 +67,11 @@ func getWeatherData() {
         guard let data = data else { return }
         
         do {
+            
             let gpsCoordinates = try JSONDecoder().decode(coordinates.self, from: data)
-            let weatherConditions = try JSONDecoder().decode(weather.self, from: data)
+           // let weatherConditions = try JSONDecoder().decode(weather.self, from: data)
             print("📡\(gpsCoordinates)📡")
-            print("🌤\(weatherConditions)🌦")
+          //  print("🌤\(weatherConditions)🌦")
             
         } catch let jsonErr {
             print("Error serializing json:", jsonErr)
@@ -62,3 +79,4 @@ func getWeatherData() {
         }.resume()
 }
 
+}

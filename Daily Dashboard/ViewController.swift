@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let weatherDataClass = OpenWeatherAPI()
+        weatherDataClass.getWeatherData()
         
         Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.getCurrentDateAndTime), userInfo: nil, repeats: true)
   
@@ -81,6 +83,10 @@ extension ViewController: CLLocationManagerDelegate {
             print("No coordinates")
         }
         print("🌎\(locations)")
+    }
+    
+    func appleTVlocation() -> (Double, Double) {
+        return (locationManager.location?.coordinate.latitude ?? 0.0 , locationManager.location?.coordinate.longitude ?? 0.0)
     }
     
     
