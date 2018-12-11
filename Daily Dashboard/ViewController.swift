@@ -16,11 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeOfDay: UILabel!
     
     let locationManager = CLLocationManager()
-    
+
+    var theWeather = OpenWeatherAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let weatherDataClass = OpenWeatherAPI()
-        weatherDataClass.getWeatherData()
         
         Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.getCurrentDateAndTime), userInfo: nil, repeats: true)
   
@@ -55,6 +54,10 @@ class ViewController: UIViewController {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
+        
+        theWeather.getWeatherData { (currentWeather) in
+            print(currentWeather)
+        }
     }
     
     @objc func getCurrentDateAndTime() {
