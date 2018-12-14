@@ -8,9 +8,6 @@
 
 import Foundation
 class OpenWeatherAPI {
-    
-    var viewController = ViewController()
-    lazy var appleTVlocation = viewController.appleTVlocation()
    
     //    struct coordinates: Codable {
     //        let longitude: Double
@@ -56,7 +53,7 @@ class OpenWeatherAPI {
     //    }
     
     
-    func getWeatherData(completion:  @escaping (WeatherAPI) -> Void) {
+    func getWeatherData(for appleTVlocation:(Double, Double), completion: @escaping (WeatherAPI) -> Void) {
         let lat = appleTVlocation.0
         let long = appleTVlocation.1
         let jsonUrlString = "http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(long)&APPID=8b29a4bca59654d89101420102680ded"
