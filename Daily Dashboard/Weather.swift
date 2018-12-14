@@ -72,11 +72,8 @@ class OpenWeatherAPI {
                 
                 let weatherConditions = try JSONDecoder().decode(WeatherAPI.self, from: data)
                 
-                //DispatchQueue.main.async {
-                    print("🌤\(weatherConditions)🌦")
+                    //print("🌤\(weatherConditions)🌦")
                     completion(weatherConditions)
-                    
-                //}
                 
             } catch let jsonErr {
                 print("Error serializing json:", jsonErr)
@@ -113,3 +110,4 @@ struct WeatherAPI: Codable {
     let main: Main
     let coord: Coord
 }
+

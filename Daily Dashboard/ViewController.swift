@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var dateAndTime: UILabel!
     @IBOutlet weak var timeOfDay: UILabel!
+    @IBOutlet weak var temperature: UILabel!
     
     let locationManager = CLLocationManager()
 
@@ -55,9 +56,31 @@ class ViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
+        var hiTemp: Double = 0
+        var loTemp: Double = 0
+        var currentTemp: Double = 0
+        var weatherID: Int = 0
+        var weatherDescription: String = ""
+        var weatherIcon: String = ""
+        
+        
         theWeather.getWeatherData(for: self.appleTVlocation()) { (currentWeather) in
-            print(currentWeather)
+            
+            hiTemp = currentWeather.main.hiTemp
+            loTemp = currentWeather.main.loTemp
+            currentTemp = currentWeather.main.temp
+            weatherID = currentWeather.weather[0].id
+            weatherDescription = currentWeather.weather[0].description
+            weatherIcon = currentWeather.weather[0].icon
+            DispatchQueue.main.async {
+                self.temperature.text = String(currentTemp)
+            }
+            
         }
+        
+        
+        
+        
     }
     
     @objc func getCurrentDateAndTime() {
@@ -85,7 +108,7 @@ extension ViewController: CLLocationManagerDelegate {
         } else {
             print("No coordinates")
         }
-        print("🌎\(locations)")
+        //print("🌎\(locations)")
     }
     
     func appleTVlocation() -> (Double, Double) {
