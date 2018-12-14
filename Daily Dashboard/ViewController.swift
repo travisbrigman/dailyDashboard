@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
-        theWeather.getWeatherData { (currentWeather) in
+        theWeather.getWeatherData(for: self.appleTVlocation()) { (currentWeather) in
             print(currentWeather)
         }
     }
