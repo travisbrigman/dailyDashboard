@@ -10,20 +10,20 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var dateAndTime: UILabel!
     @IBOutlet weak var timeOfDay: UILabel!
     @IBOutlet weak var temperature: UILabel!
     
     let locationManager = CLLocationManager()
-
+    
     var theWeather = OpenWeatherAPI()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.getCurrentDateAndTime), userInfo: nil, repeats: true)
-  
+        
         // Loads a big beautiful background image in the app
         
         let randomBackgroundImage = URL(string: "https://source.unsplash.com/collection/3519679/1920x1080")!
@@ -64,17 +64,34 @@ class ViewController: UIViewController {
         var weatherIcon: String = ""
         
         
+        func convertedTemp() -> (Measurement<UnitTemperature>, Measurement<UnitTemperature>, Measurement<UnitTemperature>) {
+            let tempKelvin = Measurement(value: currentTemp, unit: UnitTemperature.kelvin)
+            print(tempKelvin)
+            let tempFarenheit = tempKelvin.converted(to: UnitTemperature.fahrenheit)
+            print(tempFarenheit)
+            let tempCelsius = tempKelvin.converted(to: UnitTemperature.celsius)
+            
+            return (tempKelvin, tempFarenheit, tempCelsius)
+        }
+        
+
+        
         theWeather.getWeatherData(for: self.appleTVlocation()) { (currentWeather) in
             
             hiTemp = currentWeather.main.hiTemp
             loTemp = currentWeather.main.loTemp
             currentTemp = currentWeather.main.temp
+            print("🌦\(currentTemp)")
             weatherID = currentWeather.weather[0].id
             weatherDescription = currentWeather.weather[0].description
             weatherIcon = currentWeather.weather[0].icon
+            
+            convertedTemp()
+            
             DispatchQueue.main.async {
-                self.temperature.text = String(currentTemp)
+            self.temperature.text = "\(String(Int(convertedTemp().1.value.rounded(.toNearestOrEven))))ºF"
             }
+            print(currentWeather)
             
         }
         
