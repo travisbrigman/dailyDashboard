@@ -13,6 +13,11 @@
 		0F2355A7219B59790079C62F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2355A6219B59790079C62F /* Assets.xcassets */; };
 		0F2355AF219CA52F0079C62F /* UIimageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2355AE219CA52E0079C62F /* UIimageViewExtension.swift */; };
 		0F2355B3219DECF30079C62F /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2355B2219DECF30079C62F /* Weather.swift */; };
+		0F80062721C9491B004795C6 /* TempConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80062621C9491B004795C6 /* TempConversion.swift */; };
+		0F80062921C94968004795C6 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80062821C94968004795C6 /* DataModel.swift */; };
+		0F80062B21C94A19004795C6 /* LocationFinderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80062A21C94A19004795C6 /* LocationFinderExtension.swift */; };
+		0F80062D21C94A9D004795C6 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80062C21C94A9D004795C6 /* BackgroundImage.swift */; };
+		0F80062F21C94B6D004795C6 /* getCurrentDateAndTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80062E21C94B6D004795C6 /* getCurrentDateAndTime.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		0F2355A8219B59790079C62F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F2355AE219CA52E0079C62F /* UIimageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIimageViewExtension.swift; sourceTree = "<group>"; };
 		0F2355B2219DECF30079C62F /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		0F80062621C9491B004795C6 /* TempConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConversion.swift; sourceTree = "<group>"; };
+		0F80062821C94968004795C6 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		0F80062A21C94A19004795C6 /* LocationFinderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderExtension.swift; sourceTree = "<group>"; };
+		0F80062C21C94A9D004795C6 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
+		0F80062E21C94B6D004795C6 /* getCurrentDateAndTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCurrentDateAndTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +68,14 @@
 			children = (
 				0F23559F219B59750079C62F /* AppDelegate.swift */,
 				0F2355A1219B59750079C62F /* ViewController.swift */,
+				0F80062E21C94B6D004795C6 /* getCurrentDateAndTime.swift */,
+				0F80062C21C94A9D004795C6 /* BackgroundImage.swift */,
 				0F2355B2219DECF30079C62F /* Weather.swift */,
+				0F80062621C9491B004795C6 /* TempConversion.swift */,
+				0F80062821C94968004795C6 /* DataModel.swift */,
 				0F2355A3219B59750079C62F /* Main.storyboard */,
 				0F2355AE219CA52E0079C62F /* UIimageViewExtension.swift */,
+				0F80062A21C94A19004795C6 /* LocationFinderExtension.swift */,
 				0F2355A6219B59790079C62F /* Assets.xcassets */,
 				0F2355A8219B59790079C62F /* Info.plist */,
 			);
@@ -138,9 +153,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F2355B3219DECF30079C62F /* Weather.swift in Sources */,
+				0F80062B21C94A19004795C6 /* LocationFinderExtension.swift in Sources */,
 				0F2355A2219B59750079C62F /* ViewController.swift in Sources */,
+				0F80062D21C94A9D004795C6 /* BackgroundImage.swift in Sources */,
 				0F2355AF219CA52F0079C62F /* UIimageViewExtension.swift in Sources */,
+				0F80062721C9491B004795C6 /* TempConversion.swift in Sources */,
 				0F2355A0219B59750079C62F /* AppDelegate.swift in Sources */,
+				0F80062F21C94B6D004795C6 /* getCurrentDateAndTime.swift in Sources */,
+				0F80062921C94968004795C6 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
