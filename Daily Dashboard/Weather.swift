@@ -27,15 +27,14 @@ class OpenWeatherAPI {
             do {
                 
                 let weatherConditions = try JSONDecoder().decode(WeatherAPI.self, from: data)
-                
-                    //print("🌤\(weatherConditions)🌦")
+
                     completion(weatherConditions)
                 
             } catch let jsonErr {
                 print("Error serializing json:", jsonErr)
                 
             }
-            }.resume()
+        }.resume()
         
     }
     

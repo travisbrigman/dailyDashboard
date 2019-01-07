@@ -20,24 +20,47 @@ class ViewController: UIViewController {
     
     var theWeather = OpenWeatherAPI()
     var tempertaureConversion = TemperatureConversion()
-    var dateAndTimeClass = DateAndTime()
-    
-    
+    var dateAndTimeClass = DateAndTimeClass()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.delegate = self
         // get the location of the device
-        //locationManager.delegate = self as CLLocationManagerDelegate
+        locationManager.delegate = self as CLLocationManagerDelegate
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
-        dateAndTimeClass.getCurrentDateAndTime()
+        //load the device's date and time to the text on the screen and fire a request every second.
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            print("Timer fired!")
+            
+            var dayOfWeekAndDay : String = ""
+            var amPmClock : String = ""
+            
+            dayOfWeekAndDay = self.dateAndTimeClass.getCurrentDateAndTime().0
+            print(dayOfWeekAndDay)
+            amPmClock = self.dateAndTimeClass.getCurrentDateAndTime().1
+            print(amPmClock)
+            
+            self.dateAndTime.text = dayOfWeekAndDay
+            self.timeOfDay.text = amPmClock
+            
+        }
         
-        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(dateAndTimeClass.getCurrentDateAndTime), userInfo: nil, repeats: true)
+        //fires the above timer
+        timer.fire()
         
+        // calls the background image function
+        let backgroundImageInstance = getBackroundImage(completion: image)
 
+        backgroundImageInstance.getBackgroundImage { (image)
+
+            DispatchQueue.main.async {
+                mainView.background.image = image
+            }
+        }
         
+        // maps the weahter data to various things for display
         theWeather.getWeatherData(for: self.appleTVlocation()) { (currentWeather) in
             
             self.tempertaureConversion.hiTemp = currentWeather.main.hiTemp
@@ -47,15 +70,12 @@ class ViewController: UIViewController {
             self.tempertaureConversion.weatherDescription = currentWeather.weather[0].description
             self.tempertaureConversion.weatherIcon = currentWeather.weather[0].icon
             
-            self.tempertaureConversion.convertedTemp()
-            
             DispatchQueue.main.async {
                 self.temperature.text = "\(String(Int(self.tempertaureConversion.convertedTemp().1.value.rounded(.toNearestOrEven))))ºF"
             }
             print(currentWeather)
-            
         }
-        
     }
-    
 }
+
+

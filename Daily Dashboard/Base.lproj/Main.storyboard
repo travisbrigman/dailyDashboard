@@ -44,7 +44,7 @@
                                 <size key="shadowOffset" width="3" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6Z-I6-9l1" userLabel="Current Temperature">
-                                <rect key="frame" x="879" y="145" width="831" height="121"/>
+                                <rect key="frame" x="1248" y="68" width="562" height="121"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="0.7979077483" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
