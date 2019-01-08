@@ -51,12 +51,10 @@ class ViewController: UIViewController {
         timer.fire()
         
         // calls the background image function
-        let backgroundImageInstance = getBackroundImage(completion: image)
-
-        backgroundImageInstance.getBackgroundImage { (image)
+        getBackroundImage { (image) in
 
             DispatchQueue.main.async {
-                mainView.background.image = image
+                self.background.image = image
             }
         }
         
