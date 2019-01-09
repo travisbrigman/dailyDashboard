@@ -52,6 +52,14 @@ class ViewController: UIViewController {
         timer.fire()
         
         // calls the background image function
+
+        getBackroundImage { (image) in
+
+            DispatchQueue.main.async {
+                self.background.image = image
+            }
+        }
+=======
 //        let backgroundImageInstance = getBackroundImage(completion: image)
 //
 //        backgroundImageInstance.getBackgroundImage { (image)
@@ -59,7 +67,6 @@ class ViewController: UIViewController {
 //            DispatchQueue.main.async {
 //                mainView.background.image = image
 //            }
-//        }
         
         // maps the weather data to various things for display
         theWeather.getWeatherData(for: self.appleTVlocation()) { (currentWeather) in
