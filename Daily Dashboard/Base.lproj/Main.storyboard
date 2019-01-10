@@ -53,7 +53,7 @@
                                 <size key="shadowOffset" width="3" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WeatherDescription" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3us-75-a8t" userLabel="Current Temperature">
-                                <rect key="frame" x="1248" y="197" width="504" height="73"/>
+                                <rect key="frame" x="1248" y="197" width="660" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="0.7979077483" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,15 +61,10 @@
                                 <color key="shadowColor" white="0.33333333329999998" alpha="0.2032855308" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="3" height="1"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🌦" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nf-Gx-rHh" userLabel="Current Temperature">
-                                <rect key="frame" x="1641" y="68" width="111" height="121"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfo-HV-Gwz">
+                                <rect key="frame" x="1510" y="0.0" width="410" height="189"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="100"/>
-                                <color key="textColor" white="1" alpha="0.7979077483" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.33333333329999998" alpha="0.2032855308" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="3" height="1"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="wu6-TO-1qx"/>
@@ -80,6 +75,7 @@
                         <outlet property="temperature" destination="R6Z-I6-9l1" id="thp-0x-WCu"/>
                         <outlet property="timeOfDay" destination="BpI-Rl-4BC" id="Mr0-sh-iOO"/>
                         <outlet property="weatherDescription" destination="3us-75-a8t" id="qJe-m9-bbW"/>
+                        <outlet property="weatherIcon" destination="xfo-HV-Gwz" id="4nf-B4-ZSe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

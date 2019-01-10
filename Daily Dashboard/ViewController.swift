@@ -16,12 +16,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeOfDay: UILabel!
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var weatherDescription: UILabel!
+    @IBOutlet weak var weatherIcon: UIImageView!
     
     let locationManager = CLLocationManager()
     
     var theWeather = OpenWeatherAPI()
     var tempertaureConversion = TemperatureConversion()
     var dateAndTimeClass = DateAndTimeClass()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +54,13 @@ class ViewController: UIViewController {
         timer.fire()
         
         // calls the background image function
-//        let backgroundImageInstance = getBackroundImage(completion: image)
-//
-//        backgroundImageInstance.getBackgroundImage { (image)
-//
-//            DispatchQueue.main.async {
-//                mainView.background.image = image
-//            }
-//        }
+        
+        getBackroundImage { (image) in
+            
+            DispatchQueue.main.async {
+                self.background.image = image
+            }
+        }
         
         // maps the weather data to various things for display
         theWeather.getWeatherData(for: self.appleTVlocation()) { (currentWeather) in
@@ -74,6 +75,9 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 self.temperature.text = "\(String(Int(self.tempertaureConversion.convertedTemp().1.value.rounded(.toNearestOrEven))))ºF"
                 self.weatherDescription.text = self.tempertaureConversion.weatherDescription
+                
+                self.weatherIcon.image = UIImage(named: "\(self.tempertaureConversion.weatherIcon)")
+                print("THE WEATHER ID IS: \(self.tempertaureConversion.weatherIcon)")
             }
             print(currentWeather)
         }
