@@ -13,17 +13,17 @@ extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
-            print("latitude: \(lat), longitude \(long)")
+            print("latitude: \(lat), longitude \(long) 🌏")
             lookUpCurrentLocation { geoLoc in
                 print(geoLoc?.locality ?? "unknown Geo location")
             }
         } else {
             print("No coordinates")
         }
-        //print("🌎\(locations)")
     }
     
     func appleTVlocation() -> (Double, Double) {
+        print(locationManager.location?.coordinate.latitude ?? "No Coordinates")
         return (locationManager.location?.coordinate.latitude ?? 0.0 , locationManager.location?.coordinate.longitude ?? 0.0)
     }
     

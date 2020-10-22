@@ -19,9 +19,7 @@ class TemperatureConversion {
     
     func convertedTemp() -> (Measurement<UnitTemperature>, Measurement<UnitTemperature>, Measurement<UnitTemperature>) {
         let tempKelvin = Measurement(value: currentTemp, unit: UnitTemperature.kelvin)
-        print(tempKelvin)
         let tempFarenheit = tempKelvin.converted(to: UnitTemperature.fahrenheit)
-        print(tempFarenheit)
         let tempCelsius = tempKelvin.converted(to: UnitTemperature.celsius)
         
         return (tempKelvin, tempFarenheit, tempCelsius)

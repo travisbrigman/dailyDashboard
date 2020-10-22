@@ -13,6 +13,8 @@
 		0F2355A7219B59790079C62F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2355A6219B59790079C62F /* Assets.xcassets */; };
 		0F2355AF219CA52F0079C62F /* UIimageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2355AE219CA52E0079C62F /* UIimageViewExtension.swift */; };
 		0F2355B3219DECF30079C62F /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2355B2219DECF30079C62F /* Weather.swift */; };
+		0F6F4E1322CF98D9001813F3 /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F6F4E1222CF98D8001813F3 /* weathericons-regular-webfont.ttf */; };
+		0F6F4E1722D5FA3F001813F3 /* weatherFontIconDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F4E1622D5FA3F001813F3 /* weatherFontIconDictionary.swift */; };
 		0F80062721C9491B004795C6 /* TempConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80062621C9491B004795C6 /* TempConversion.swift */; };
 		0F80062921C94968004795C6 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80062821C94968004795C6 /* DataModel.swift */; };
 		0F80062B21C94A19004795C6 /* LocationFinderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80062A21C94A19004795C6 /* LocationFinderExtension.swift */; };
@@ -30,6 +32,8 @@
 		0F2355A8219B59790079C62F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F2355AE219CA52E0079C62F /* UIimageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIimageViewExtension.swift; sourceTree = "<group>"; };
 		0F2355B2219DECF30079C62F /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		0F6F4E1222CF98D8001813F3 /* weathericons-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "weathericons-regular-webfont.ttf"; sourceTree = "<group>"; };
+		0F6F4E1622D5FA3F001813F3 /* weatherFontIconDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherFontIconDictionary.swift; sourceTree = "<group>"; };
 		0F80062621C9491B004795C6 /* TempConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempConversion.swift; sourceTree = "<group>"; };
 		0F80062821C94968004795C6 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		0F80062A21C94A19004795C6 /* LocationFinderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderExtension.swift; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 			children = (
 				0F23559E219B59750079C62F /* Daily Dashboard */,
 				0F23559D219B59750079C62F /* Products */,
+				0FCA936524030DEC00F91D05 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +75,8 @@
 			children = (
 				0F23559F219B59750079C62F /* AppDelegate.swift */,
 				0F2355A1219B59750079C62F /* ViewController.swift */,
+				0F6F4E1622D5FA3F001813F3 /* weatherFontIconDictionary.swift */,
+				0F6F4E1222CF98D8001813F3 /* weathericons-regular-webfont.ttf */,
 				0FE5D43921E4D864006F172A /* iconMatching.swift */,
 				0F80062E21C94B6D004795C6 /* getCurrentDateAndTime.swift */,
 				0F80062C21C94A9D004795C6 /* BackgroundImage.swift */,
@@ -83,6 +90,13 @@
 				0F2355A8219B59790079C62F /* Info.plist */,
 			);
 			path = "Daily Dashboard";
+			sourceTree = "<group>";
+		};
+		0FCA936524030DEC00F91D05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +131,7 @@
 				TargetAttributes = {
 					0F23559B219B59750079C62F = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1160;
 					};
 				};
 			};
@@ -145,6 +160,7 @@
 			files = (
 				0F2355A7219B59790079C62F /* Assets.xcassets in Resources */,
 				0F2355A5219B59750079C62F /* Main.storyboard in Resources */,
+				0F6F4E1322CF98D9001813F3 /* weathericons-regular-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +178,7 @@
 				0F2355AF219CA52F0079C62F /* UIimageViewExtension.swift in Sources */,
 				0FE5D43A21E4D864006F172A /* iconMatching.swift in Sources */,
 				0F80062721C9491B004795C6 /* TempConversion.swift in Sources */,
+				0F6F4E1722D5FA3F001813F3 /* weatherFontIconDictionary.swift in Sources */,
 				0F2355A0219B59750079C62F /* AppDelegate.swift in Sources */,
 				0F80062F21C94B6D004795C6 /* getCurrentDateAndTime.swift in Sources */,
 				0F80062921C94968004795C6 /* DataModel.swift in Sources */,
@@ -310,7 +327,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "TravisRBrigman.Daily-Dashboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Debug;
@@ -329,7 +346,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "TravisRBrigman.Daily-Dashboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Release;
