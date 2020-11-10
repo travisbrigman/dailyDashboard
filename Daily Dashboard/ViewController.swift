@@ -69,7 +69,7 @@ class ViewController: UIViewController {
             
             dayOfWeekAndDay = self.dateAndTimeClass.getCurrentDateAndTime().0
             amPmClock = self.dateAndTimeClass.getCurrentDateAndTime().1
-            print("⏰", amPmClock, dayOfWeekAndDay,"📆")
+           // print("⏰", amPmClock, dayOfWeekAndDay,"📆")
             
             self.dateAndTime.text = dayOfWeekAndDay
             self.timeOfDay.text = amPmClock

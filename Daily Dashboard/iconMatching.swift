@@ -16,6 +16,7 @@ class iconSelector {
         
         for items in matchUp {
             if items.key == temperatureConversion.weatherID {
+                print("items.key:", items.key, "weatherId:",temperatureConversion.weatherID)
                let iconDict = items.value
                 for (_, value) in iconDict{
                     let icon = value

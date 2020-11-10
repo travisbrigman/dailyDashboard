@@ -22,7 +22,7 @@ func getBackroundImage(completion: @escaping (UIImage) -> Void) {
         } else {
             // No errors found.
             if let res = response as? HTTPURLResponse {
-                print("Downloaded picture with response code \(res.statusCode)📡")
+               // print("Downloaded picture with response code \(res.statusCode)📡")
                 if let imageData = data {
                     if let image = UIImage(data: imageData){
                     completion(image)
