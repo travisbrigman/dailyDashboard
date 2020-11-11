@@ -9,17 +9,14 @@
 import UIKit
 import CoreLocation
 
-
-
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var dateAndTime: UILabel!
     @IBOutlet weak var timeOfDay: UILabel!
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var weatherDescription: UILabel!
     @IBOutlet weak var weatherFont: UILabel!
-    @IBOutlet weak var weatherIcon: UIImageView!
     
     let locationManager = CLLocationManager()
     
@@ -28,33 +25,9 @@ class ViewController: UIViewController {
     var dateAndTimeClass = DateAndTimeClass()
     var weatherFontDictionaryClass = FontIconDict()
     var theIconSelector = iconSelector()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        for (description, unicode) in weatherFontDictionaryClass.weatherFontDict {
-//            print("\(description),\(unicode)")
-//        }
-        
-        
-        // This is assigning the value from the iconMatching file  to a value viewed on screen
-        
-//        var fooVal = [String:String]()
-//        
-//        for (key, value) in theIconSelector.matchUp {
-//             fooVal = value
-//        }
-//        
-//        var fooValVal = ""
-//        
-//        for (key, value) in fooVal {
-//            fooValVal = value
-//        }
-//        
-//        print(fooValVal)
-        
-        weatherFont.text =  theIconSelector.idToIconMatcher(id: tempertaureConversion.weatherID)
-        
         
         // get the location of the device
         locationManager.delegate = self as CLLocationManagerDelegate
@@ -69,7 +42,7 @@ class ViewController: UIViewController {
             
             dayOfWeekAndDay = self.dateAndTimeClass.getCurrentDateAndTime().0
             amPmClock = self.dateAndTimeClass.getCurrentDateAndTime().1
-           // print("⏰", amPmClock, dayOfWeekAndDay,"📆")
+            // print("⏰", amPmClock, dayOfWeekAndDay,"📆")
             
             self.dateAndTime.text = dayOfWeekAndDay
             self.timeOfDay.text = amPmClock
@@ -80,9 +53,7 @@ class ViewController: UIViewController {
         timer.fire()
         
         // calls the background image function
-        
         getBackroundImage { (image) in
-            
             DispatchQueue.main.async {
                 self.background.image = image
             }
@@ -97,14 +68,15 @@ class ViewController: UIViewController {
             self.tempertaureConversion.weatherID = currentWeather.weather[0].id
             self.tempertaureConversion.weatherDescription = currentWeather.weather[0].description
             self.tempertaureConversion.weatherIcon = currentWeather.weather[0].icon
+
+            
             
             DispatchQueue.main.async {
+                self.weatherFont.text = self.theIconSelector.idToIconMatcher(id: self.tempertaureConversion.weatherID)
+               
                 self.temperature.text = "\(String(Int(self.tempertaureConversion.convertedTemp().1.value.rounded(.toNearestOrEven))))ºF"
                 self.weatherDescription.text = self.tempertaureConversion.weatherDescription
-                //print("Weather Description\(self.weatherDescription.text)")
-                
-                self.weatherIcon.image = UIImage(named: "\(self.tempertaureConversion.weatherIcon)")
-                //print("⛅️THE WEATHER ID IS: \(self.tempertaureConversion.weatherIcon)🌤")
+
             }
         }
     }
