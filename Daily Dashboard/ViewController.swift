@@ -58,7 +58,7 @@ class ViewController: UIViewController {
                 self.background.image = image
             }
         }
-        
+                
         // maps the weather data to various things for display
         theWeather.getWeatherData(for: self.appleTVlocation()) { (currentWeather) in
             
@@ -68,11 +68,10 @@ class ViewController: UIViewController {
             self.tempertaureConversion.weatherID = currentWeather.weather[0].id
             self.tempertaureConversion.weatherDescription = currentWeather.weather[0].description
             self.tempertaureConversion.weatherIcon = currentWeather.weather[0].icon
+            let weatherCharacter = self.theIconSelector.idToIconMatcher(id: self.tempertaureConversion.weatherID)
 
-            
-            
             DispatchQueue.main.async {
-                self.weatherFont.text = self.theIconSelector.idToIconMatcher(id: self.tempertaureConversion.weatherID)
+                self.weatherFont.text = weatherCharacter
                
                 self.temperature.text = "\(String(Int(self.tempertaureConversion.convertedTemp().1.value.rounded(.toNearestOrEven))))ºF"
                 self.weatherDescription.text = self.tempertaureConversion.weatherDescription

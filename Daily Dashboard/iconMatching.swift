@@ -13,10 +13,8 @@ class iconSelector {
     
     func idToIconMatcher(id: Int) -> String {
         let icon = ""
-        
         for items in matchUp {
-            if items.key == temperatureConversion.weatherID {
-                print("items.key:", items.key, "weatherId:",temperatureConversion.weatherID)
+            if items.key == id {
                let iconDict = items.value
                 for (_, value) in iconDict{
                     let icon = value
