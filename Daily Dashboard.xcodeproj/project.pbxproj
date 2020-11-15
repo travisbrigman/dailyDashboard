@@ -20,6 +20,7 @@
 		0F80062B21C94A19004795C6 /* LocationFinderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80062A21C94A19004795C6 /* LocationFinderExtension.swift */; };
 		0F80062D21C94A9D004795C6 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80062C21C94A9D004795C6 /* BackgroundImage.swift */; };
 		0F80062F21C94B6D004795C6 /* getCurrentDateAndTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80062E21C94B6D004795C6 /* getCurrentDateAndTime.swift */; };
+		0FB9428325613F2900BE3F0E /* appScreenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB9428225613F2900BE3F0E /* appScreenShot.png */; };
 		0FE5D43A21E4D864006F172A /* iconMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE5D43921E4D864006F172A /* iconMatching.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,8 @@
 		0F80062A21C94A19004795C6 /* LocationFinderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderExtension.swift; sourceTree = "<group>"; };
 		0F80062C21C94A9D004795C6 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		0F80062E21C94B6D004795C6 /* getCurrentDateAndTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCurrentDateAndTime.swift; sourceTree = "<group>"; };
+		0FB9428125613B2D00BE3F0E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0FB9428225613F2900BE3F0E /* appScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appScreenShot.png; sourceTree = "<group>"; };
 		0FE5D43921E4D864006F172A /* iconMatching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconMatching.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				0F23559F219B59750079C62F /* AppDelegate.swift */,
+				0FB9428125613B2D00BE3F0E /* README.md */,
 				0F2355A1219B59750079C62F /* ViewController.swift */,
 				0F6F4E1622D5FA3F001813F3 /* weatherFontIconDictionary.swift */,
 				0F6F4E1222CF98D8001813F3 /* weathericons-regular-webfont.ttf */,
@@ -88,6 +92,7 @@
 				0F80062A21C94A19004795C6 /* LocationFinderExtension.swift */,
 				0F2355A6219B59790079C62F /* Assets.xcassets */,
 				0F2355A8219B59790079C62F /* Info.plist */,
+				0FB9428225613F2900BE3F0E /* appScreenShot.png */,
 			);
 			path = "Daily Dashboard";
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			files = (
 				0F2355A7219B59790079C62F /* Assets.xcassets in Resources */,
 				0F2355A5219B59750079C62F /* Main.storyboard in Resources */,
+				0FB9428325613F2900BE3F0E /* appScreenShot.png in Resources */,
 				0F6F4E1322CF98D9001813F3 /* weathericons-regular-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
