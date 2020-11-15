@@ -60,6 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				0F23559E219B59750079C62F /* Daily Dashboard */,
+				0FB9428125613B2D00BE3F0E /* README.md */,
+				0FB9428225613F2900BE3F0E /* appScreenShot.png */,
 				0F23559D219B59750079C62F /* Products */,
 				0FCA936524030DEC00F91D05 /* Frameworks */,
 			);
@@ -77,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				0F23559F219B59750079C62F /* AppDelegate.swift */,
-				0FB9428125613B2D00BE3F0E /* README.md */,
 				0F2355A1219B59750079C62F /* ViewController.swift */,
 				0F6F4E1622D5FA3F001813F3 /* weatherFontIconDictionary.swift */,
 				0F6F4E1222CF98D8001813F3 /* weathericons-regular-webfont.ttf */,
@@ -92,7 +93,6 @@
 				0F80062A21C94A19004795C6 /* LocationFinderExtension.swift */,
 				0F2355A6219B59790079C62F /* Assets.xcassets */,
 				0F2355A8219B59790079C62F /* Info.plist */,
-				0FB9428225613F2900BE3F0E /* appScreenShot.png */,
 			);
 			path = "Daily Dashboard";
 			sourceTree = "<group>";
